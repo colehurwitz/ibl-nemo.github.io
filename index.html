@@ -260,13 +260,13 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Cerebellum cell-type classification
+                    Cerebellum cell-type classification (Beau et al. 2025)
                 </h3>
-                <img src="./index_files/images/c4_cerebellum_website.png" class="img-responsive" alt="cell-type" style="width: 100%"><br>
+                <img src="./index_files/images/c4_cerebellum_website.png" class="img-responsive" alt="cell-type ultra" style="width: 100%"><br>
                 <h3>
-                    Visual cortex cell-type classification
+                    Visual cortex cell-type classification (Ye et al. 2024)
                 </h3>
-                <img src="./index_files/images/np_ultra_website.png" class="img-responsive" alt="cell-type" style="width: 100%"><br>
+                <img src="./index_files/images/np_ultra_website.png" class="img-responsive" alt="cell-type c4" style="width: 100%"><br>
                 <p class="text-justify">
                     <i>Comparing NEMO to baseline models on two different optotagged datasets: an NP Ultra visual cortex (Ye et al. 2024) and a Neuropixels 1 cerebellum dataset (Beau et al. 2025). We show the UMAP visualization of NEMO representations for unseen opto-tagged units, colored by different cell-types. We also show the Balanced accuracy Confusion matrices normalized by ground truth label and averaged across 5 random seeds. NEMO outperforms the other embedding methods by a significant margin across all cell-types and evaluation methods.
             </div>
@@ -275,33 +275,22 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Scale analysis
+                    Brain region classification for the Brain-Wide Map (BWM; International Brain Laboratory et al. 2024)
                 </h3>
-                <img src="./index_files/images/figure_4.png" class="img-responsive" alt="clustering analysis"><br>
+                <img src="./index_files/images/region_classification_website.png" class="img-responsive" alt="region classification"><br>
                 <p class="text-justify">
-                    <i>Comparison of scaling curves between  NDT1-stitch pretrained with the MtM method vs. the temporal masking baseline.</i> The reported metrics - neuron-averaged bits per spike (bps), choice decoding accuracy, and whisker motion energy decoding R<sup>2</sup> - are averaged over all 5 held-out sessions. We fine-tune each pretrained model with its self-supervised loss (MtM or temporal) on the 5-heldout sessions and then evaluate with all of our metrics. "Num of Sessions" denotes the number of sessions used for pretraining.
+                    <i>Results for NEMO on the IBL brain region classification task. We show a schematic for multi-neuron classifier. At each depth, the neurons within 60 microns were used to classify the anatomical region. Only the nearest 5 neurons were selected if there were more than 5 neurons within that range. We average the logits of the single-neuron classifier (trained on NEMO embeddings) for all 5 neurons. The final prediction is based on the average of the individual logits.  We show confusion matrices for the single-neuron region classifier and multi-neuron region classifier for fine-tuned NEMO, averaged across 5 runs. We show the single neuron balanced accuracy with linear classifier and the MLP head for each model trained/fine-tuned with different label ratios. We also show the single-neuron MLP-classification balanced accuracy for each modality separately and for the combined representation.
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Behavior decoding from individual brain regions
+                    Clustering and visualization the NEMO representations for the BWM
                 </h3>
-                <img src="./index_files/images/figure_5.png" class="img-responsive" alt="zero-shot"><br>
+                <img src="./index_files/images/region_clustering_website.png" class="img-responsive" alt="region clustering"><br>
                 <p class="text-justify">
-                    <i>Comparison of NDT1-stitch pretrained with the MtM method vs. the baseline temporal masking on behavior decoding from individual brain regions.</i> The rows display choice decoding accuracy and whisker motion energy decoding R<sup>2</sup>. Columns represent individual held-out sessions. Each point shows the behavior decoding performance when using neural activity from a specific brain region, with colors denoting different brain regions.
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Single neuron evaluation
-                </h3>
-                <img src="./index_files/images/figure_6.png" class="img-responsive" alt="zero-shot"><br>
-                <p class="text-justify">
-                    <b>Single neuron activity reconstruction analysis for NDT1 in one session.</b> To evaluate the reconstruction quality for each  neuron, multiple metrics are computed: Bits per spike (Bps), R<sup>2</sup> between the ground truth and predicted peristimulus time histogram (PSTH R<sup>2</sup>), and the single-trial R<sup>2</sup> averaged across all trials (Trial average R<sup>2</sup>). Each point represents one neuron, with the color indicating the neuron's log firing rates in Hertz (Hz).
+                    <i>IBL neuron clustering using NEMO. We show the UMAP visualization of the representations that NEMO extracts from the training data colored by anatomical brain region. We also show the same UMAP instead colored by cluster labels using a graph-based approach (Louvain clustering). We tuned the neighborhood size in UMAP and the resolution for the clustering. These parameters were selected by maximizing the modularity index which minimized the number of clusters. We show 2D brain slices across three brain views with the location of individual neurons colored using the cluster IDs. The black lines show the region boundaries of the Allen mouse atlas (Wang et al. 2020). The cluster distribution found using NEMO is closely correlated with the anatomical regions and is consistent across insertions from different labs.
             </div>
         </div>
 
@@ -312,13 +301,13 @@
                 </h3>
                 If you find our data or project useful in your research, please cite:
                 <pre class="w3-panel w3-leftbar w3-light-grey" style="white-space: pre-wrap; font-family: monospace; font-size: 10px">
-@InProceedings{Zhang_2024_arXiv,
-    author    = {Zhang, Yizi and Wang, Yanchen and Benetó, Donato Jiménez and Wang, Zixuan and Azabou, Mehdi and Richards, Blake and Winter, Olivier and The International Brain Laboratory and Dyer, Eva and Paninski, Liam and Hurwitz, Cole},
-    title     = {Towards a “universal translator” for neural dynamics at single-cell, single-spike resolution},
-    booktitle = {arXiv},
-    month     = {July},
-    year      = {2024},
-    url       = {http://arxiv.org/abs/2407.14668}
+ @inproceedings{
+    yu2025in,
+    title={In vivo cell-type and brain region classification via multimodal contrastive learning},
+    author={Han Yu and Hanrui Lyu and YiXun Xu and Charlie Windolf and Eric Kenji Lee and Fan Yang and Andrew M Shelton and Olivier Winter and International Brain Laboratory and Eva L Dyer and Chandramouli Chandrasekaran and Nicholas A. Steinmetz and Liam Paninski and Cole Lincoln Hurwitz},
+    booktitle={The Thirteenth International Conference on Learning Representations},
+    year={2025},
+    url={https://openreview.net/forum?id=10JOlFIPjt}
 }</pre>
             </div>
         </div>
@@ -327,7 +316,7 @@
                 <h3>
                     Acknowledgments
                 </h3>
-                This project was supported by the Wellcome Trust (209558 and 216324), National Institutes of Health (1U19NS123716), the Simons Foundation, the National Science Foundation (NSF award CIF:RI:2212182, NSF CAREER awards IIS-2146072), NSERC (Discovery Grant: RGPIN-2020-05105; Discovery Accelerator Supplement: RGPAS-2020-00031; Arthur B. McDonald Fellowship: 566355-2022) and CIFAR (Canada AI Chair; Learning in Machine and Brains Fellowship), and by DoD OUSD (R\&E) under Cooperative Agreement PHY-2229929 (The NSF AI Institute for Artificial and Natural Intelligence), as well as generous gifts from the Alfred Sloan Foundation, the McKnight Foundation, and the CIFAR Azrieli Global Scholars Program. The website template was borrowed from <a href="https://curvenet.github.io">here</a>.
+                We thank Jonathan Pillow and Tatiana Engel for providing feedback on this manuscript. We also thank Maxime Beau and the other authors of Beau et al. 2025 for sharing the C4 cerebellum dataset. This project was supported by the Wellcome Trust (PRF 209558, 216324, 201225, and 224688 to MH, SHWF 221674 to LFR, collaborative award 204915 to MC, MH and TDH), National Institutes of Health (1U19NS123716), the Simons Foundation, the DoD OUSD (R\&E) under Cooperative Agreement PHY-2229929 (The NSF AI Institute for Artificial and Natural Intelligence), the Kavli Foundation, the Gatsby Charitable Foundation (GAT3708), the NIH BRAIN Initiative (U01NS113252 to NAS, SRO, and TDH), the Pew Biomedical Scholars Program (NAS), the Max Planck Society (GL), the European Research Council under the European Union’s Horizon 2020 research and innovation programme (grant agreement No 834446 to GL and AdG 695709 to MH), the Giovanni Armenise Harvard Foundation (CDA to LFR), the Human Technopole (ECF to LFR), the NSF (IOS 211500 to NBS), the Klingenstein-Simons Fellowship in Neuroscience (NAS), the NINDS R01NS122969, the NINDS R21NS135361, the NINDS F31NS131018, the NSF CAREER awards IIS-2146072, as well as generous gifts from the McKnight Foundation, and the CIFAR Azrieli Global Scholars Program. GM is supported by a Boehringer Ingelheim Fonds PhD Fellowship. The primate research procedures were supported by the NIH P51 (OD010425) to the WaNPRC, and animal breeding was supported by NIH U42 (OD011123). Computational modeling work was supported by the European Union Horizon 2020 Research and Innovation Programme under Grant Agreement No. 945539 Human Brain Project SGA3 and No. 101147319 EBRAINS 2.0 (GTE and TVN). Computational resources for building machine learning models were provided by ACCESS, which is funded by the US National Science Foundation.
                 <p></p>
             </div>
         </div>
