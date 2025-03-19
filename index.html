@@ -41,6 +41,11 @@
     <script src="./index_files/clipboard.min.js"></script>
 
     <script src="./index_files/app.js"></script>
+    <style>
+        h1 {
+            margin-bottom: 10px; /* Adjust as needed */
+        }
+    </style>
 </head>      
     
 <body data-gr-c-s-loaded="true">
@@ -217,7 +222,7 @@
                     Abstract
                 </h3>
                 <p class="text-justify">
-                    Current electrophysiological approaches can track the activity of many neurons, yet it is usually unknown which cell-types or brain areas are being recorded without further molecular or histological analysis. Developing accurate and scalable algorithms for identifying the cell-type and brain region of recorded neurons is thus crucial for improving our understanding of neural computation. In this work, we develop a multimodal contrastive learning approach for neural data that can be fine-tuned for different downstream tasks, including inference of cell-type and brain location. We utilize multimodal contrastive learning to jointly embed the activity autocorrelations and extracellular waveforms of individual neurons. We demonstrate that our embedding approach, Neuronal Embeddings via MultimOdal Contrastive Learning (NEMO), paired with supervised fine-tuning, achieves state-of-the-art cell-type classification for two opto-tagged datasets and brain region classification for the public International Brain Laboratory Brain-wide Map dataset. Our method represents a promising step towards accurate cell-type and brain region classification from electrophysiological recordings.
+                    Current electrophysiological approaches can track the activity of many neurons, yet it is usually unknown which cell-types or brain areas are being recorded without further molecular or histological analysis. Developing accurate and scalable algorithms for identifying the cell-type and brain region of recorded neurons is thus crucial for improving our understanding of neural computation. In this work, we develop a multimodal contrastive learning approach for neural data that can be fine-tuned for different downstream tasks, including inference of cell-type and brain location. We utilize multimodal contrastive learning to jointly embed the activity autocorrelations and extracellular waveforms of individual neurons. We demonstrate that our embedding approach, Neuronal Embeddings via MultimOdal Contrastive Learning (NEMO), paired with supervised fine-tuning, achieves state-of-the-art cell-type classification for two opto-tagged datasets and brain region classification for the public International Brain Laboratory Brain-wide Map dataset. Our method represents a promising step towards accurate cell-type and brain region classification from electrophysiological recordings. Code is availabe at https://github.com/Haansololfp/NEMO.
                 </p>
             </div>
         </div>
@@ -230,13 +235,13 @@
                 <p class="text-justify">
                     <ul>
                         <li>
-                            A multimodal contrastive learning method for electrophysiological data, Neuronal Embeddings via MultimOdal Contrastive Learning (NEMO)
+                            A multimodal contrastive learning method for electrophysiological data, Neuronal Embeddings via MultimOdal Contrastive Learning (NEMO).
                         </li>
                         <li>
                             Utilizes unlabeled data for pre-training and can be fine-tuned for different downstream tasks including cell-type and brain region classification.
                         </li>
                         <li>
-                            NEMO outperforms current unsupervised (PhysMAP and VAEs) and supervised methods, with particularly strong performance in label-limited regimes
+                            NEMO outperforms current unsupervised (PhysMAP and VAEs) and supervised methods, with particularly strong performance in label-limited regimes.
                         </li>
                     </ul>
                 </p>
